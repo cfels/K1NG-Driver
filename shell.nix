@@ -6,5 +6,6 @@ pkgs.mkShell {
     gnumake
     libusb1
     pkg-config
+    pkgs.nil
   ];
 }
