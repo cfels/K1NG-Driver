@@ -53,3 +53,4 @@ dkms.conf
 
 # debug information files
 *.dwo
+k1ng_driver
