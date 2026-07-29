@@ -10,7 +10,12 @@ void run_driver(int sens) {
         return;
     }
 
-    handle = libusb_open_device_with_vid_pid(NULL, TARGET_VID, TARGET_PID);
+    // wired/wireless support
+    handle = libusb_open_device_with_vid_pid(NULL, TARGET_VID, TARGET_PID_WIRED);
+    if (!handle) {
+        handle = libusb_open_device_with_vid_pid(NULL, TARGET_VID, TARGET_PID_WIRELESS);
+    }
+
     if (!handle) {
         fprintf(stderr, "mouse not found!!\n");
         libusb_exit(NULL);
