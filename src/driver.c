@@ -2,7 +2,7 @@
 #include "driver.h"
 #include "data.h"
 
-void run_driver(int target_level) {
+void run_driver(int sens) {
     libusb_device_handle *handle = NULL;
     int r = libusb_init(NULL);
     if (r < 0) {
@@ -25,7 +25,7 @@ void run_driver(int target_level) {
     libusb_claim_interface(handle, 1);
 
     unsigned char payload[17];
-    get_payload(target_level, payload);
+    get_payload(sens, payload);
 
     int transferred = libusb_control_transfer(
         handle,
@@ -41,7 +41,7 @@ void run_driver(int target_level) {
     if (transferred < 0) {
         fprintf(stderr, "byte transfer failed: %s\n", libusb_error_name(transferred));
     } else {
-        printf("write succeed %d (%d bytes written)\n", target_level, transferred);
+        printf("write succeed %d (%d bytes written)\n", sens, transferred);
     }
 
     libusb_release_interface(handle, 1);

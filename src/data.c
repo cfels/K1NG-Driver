@@ -1,15 +1,12 @@
-#ifndef DATA_H
-#define DATA_H
+#include "data.h"
+#include <string.h>
+#include <stdlib.h>
 
 struct dpi_payload {
     int level;
     unsigned char buf[17];
 };
 
-/*
- all possible sens values
- reverse engineered from "goldgoldgold.pcapng"
-*/
 static const struct dpi_payload payload_table[] = {
     {50   , {0x08, 0x07, 0x00, 0x00, 0x0c, 0x04, 0x00, 0x00, 0x00, 0x55, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe1}},
     {100  , {0x08, 0x07, 0x00, 0x00, 0x0c, 0x04, 0x01, 0x01, 0x00, 0x53, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe1}},
@@ -533,4 +530,26 @@ static const struct dpi_payload payload_table[] = {
     {26000, {0x08, 0x07, 0x00, 0x00, 0x0c, 0x04, 0x07, 0x07, 0x88, 0xbf, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe1}},
 };
 
-#endif
+static const size_t payload_table_len = sizeof(payload_table) / sizeof(payload_table[0]);
+
+void get_payload(int level, unsigned char *buf) {
+    if (level < payload_table[0].level) {
+        level = payload_table[0].level;
+    } else if (level > payload_table[payload_table_len - 1].level) {
+        level = payload_table[payload_table_len - 1].level;
+    }
+
+    size_t best = 0;
+    int best_diff = abs(level - payload_table[0].level);
+
+    for (size_t i = 1; i < payload_table_len; i++) {
+        int diff = level - payload_table[i].level;
+        if (diff < 0) diff = -diff;
+        if (diff < best_diff) {
+            best_diff = diff;
+            best = i;
+        }
+    }
+
+    memcpy(buf, payload_table[best].buf, sizeof(payload_table[best].buf));
+}
