@@ -7,6 +7,7 @@
 #include <stdbool.h>
 #include "libusb-1.0.30/libusb/libusb.h"
 
+// mouse pid
 #define TARGET_VID 0x3554
 #define TARGET_PID 0xf54d
 
