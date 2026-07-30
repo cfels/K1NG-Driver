@@ -27,11 +27,10 @@ sudo ./k1ng_driver
 
 ### TODO
 
-- [ ] add config support
+- [x] add config support
 - [x] changing sens
 - [x] wireless mode support
 - [x] wired mode support
-- [ ] make a gui for the driver
 
 ### License
 
