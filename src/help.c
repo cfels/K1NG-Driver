@@ -14,5 +14,5 @@ void help(void) {
     printf(" sudo ./k1ng_driver <sens>        set sens directly\n");
     printf(" sudo ./k1ng_driver -p <preset>   load sens from a saved preset\n");
     printf(" sudo ./k1ng_driver -h            show's help duh!\n");
-    printf(" sudo ./k1ng_driver -s                 to save a new preset\n");
+    printf(" sudo ./k1ng_driver -s            to save a new preset\n");
 }
