@@ -1,5 +1,4 @@
 
-
 > [!IMPORTANT]
 > U may need something like this for the driver to work:
 
@@ -11,7 +10,7 @@ services.udev.extraRules = ''
 
 ## K1NG-Driver
 
-a practically finished driver for K1NG PRO (4K) mouse from redragon on linux
+a practically finished driver for K1NG PRO (4K) mouse from redragon, ported to linux
 
 ### Downloading
 
