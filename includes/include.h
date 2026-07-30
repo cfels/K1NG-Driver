@@ -5,7 +5,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <unistd.h>
 #include "libusb-1.0.30/libusb/libusb.h"
+#include "tomlc17-R260618/src/tomlc17.h"
 
 // mouse pids
 #define TARGET_VID 0x3554

@@ -1,6 +1,15 @@
 > [!NOTE]  
 > work in progress, but works!
 
+> [!IMPORTANT]
+> U may need something like this for the driver to work:
+
+```
+services.udev.extraRules = ''
+    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f54d", MODE="0666"
+  '';
+```
+
 ## K1NG-Driver
 
 a driver for K1NG PRO (4K) mouse from redragon
