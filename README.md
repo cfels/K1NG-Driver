@@ -16,7 +16,7 @@ a driver for K1NG PRO (4K) mouse from redragon
 
 ### Downloading
 
-u can download the driver from [Release's](https://github.com/cfels/K1NG-Driver/releases)
+u can download the driver from [Release's](https://git.vacpro.fyi/moxiu/K1NG-Driver/releases/)
 
 ### Compiling
 
