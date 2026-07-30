@@ -34,4 +34,4 @@ sudo ./k1ng_driver
 
 ### License
 
-this project is under [MIT License](https://github.com/cfels/K1NG-Driver/blob/dev/LICENSE)
+this project is under [MIT License](https://git.vacpro.fyi/moxiu/K1NG-Driver/src/branch/dev/LICENSE)
