@@ -1,4 +1,3 @@
-
 > [!IMPORTANT]
 > U may need something like this for the driver to work:
 
@@ -29,6 +28,7 @@ sudo ./k1ng_driver
 - [x] changing sens
 - [x] wireless mode support
 - [x] wired mode support
+- [ ] make an ui for the driver
 
 ### License
 
