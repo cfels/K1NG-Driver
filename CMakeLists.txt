@@ -44,6 +44,20 @@ qt_add_qml_module(k1ngui
     RESOURCES
         src/ui/qml/services/qmldir
         src/ui/qml/assets/fonts/MapleMono-NF-Regular.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-Italic.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-Thin.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-ThinItalic.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-ExtraLight.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-ExtraLightItalic.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-Light.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-LightItalic.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-Medium.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-MediumItalic.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-SemiBold.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-SemiBoldItalic.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-Bold.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-BoldItalic.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-ExtraBold.ttf
         src/ui/qml/assets/fonts/MapleMono-NF-ExtraBoldItalic.ttf
         src/ui/qml/assets/logo.png
     RESOURCE_PREFIX "/qt/qml"

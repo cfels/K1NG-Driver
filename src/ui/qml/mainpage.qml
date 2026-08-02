@@ -11,11 +11,22 @@ Item {
     property int dpi: 650
     property int currentTab: 0
 
+    onCurrentTabChanged: {
+        if (presetField.menuOpen) {
+            presetPopup.closePopup();
+        }
+    }
+
     // ui font
     MapleFontLoader {
         id: mapleFont
     }
     readonly property string mono: mapleFont.name
+
+    FontLoader {
+        id: mapleExtraBold
+        source: "qrc:/qt/qml/src/ui/qml/assets/fonts/MapleMono-NF-ExtraBold.ttf"
+    }
 
     // ui colors
     readonly property color crust: "#11111b"
@@ -36,6 +47,16 @@ Item {
     }
     PresetManager {
         id: presets
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        z: -1
+        onPressed: mouse => {
+            if (nameInput.activeFocus)
+                nameInput.focus = false;
+            mouse.accepted = false;
+        }
     }
 
     Rectangle {
@@ -130,8 +151,8 @@ Item {
                 Rectangle {
                     id: tabPill
                     width: 260
-                    height: 42
-                    radius: 21
+                    height: 46
+                    radius: 26
                     color: surface
 
                     Rectangle {
@@ -162,9 +183,8 @@ Item {
                                     anchors.centerIn: parent
                                     text: modelData
                                     color: root.currentTab === index ? crust : subtext
-                                    font.pixelSize: 17
-                                    font.family: root.mono
-                                    font.weight: Font.Medium
+                                    font.pixelSize: 22
+                                    font.family: mapleExtraBold.name
                                     Behavior on color {
                                         ColorAnimation {
                                             duration: 220
@@ -240,7 +260,7 @@ Item {
                         Layout.alignment: Qt.AlignHCenter
                         text: "DPI: " + root.dpi
                         color: root.text
-                        font.pixelSize: 22
+                        font.pixelSize: 30
                         font.family: root.mono
                         font.weight: Font.Medium
                     }
@@ -345,7 +365,6 @@ Item {
 
                             MouseArea {
                                 anchors.fill: parent
-                                z: -1
                                 acceptedButtons: Qt.AllButtons
                                 onPressed: mouse => mouse.accepted = true
                             }
@@ -494,7 +513,6 @@ Item {
 
                             MouseArea {
                                 anchors.fill: parent
-                                z: -1
                                 acceptedButtons: Qt.AllButtons
                                 onPressed: mouse => mouse.accepted = true
                             }
@@ -526,13 +544,8 @@ Item {
                                 y: nameInput.activeFocus || nameInput.text.length > 0 ? 8 : (parent.height - height) / 2
                                 Behavior on y {
                                     NumberAnimation {
-                                        duration: 200
+                                        duration: 120
                                         easing.type: Easing.OutCubic
-                                    }
-                                }
-                                Behavior on font.pixelSize {
-                                    NumberAnimation {
-                                        duration: 200
                                     }
                                 }
                             }
@@ -600,10 +613,10 @@ Item {
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 16
                     source: "qrc:/qt/qml/src/ui/qml/assets/logo.png"
-                    width: 60
-                    height: 60
+                    width: 100
+                    height: 100
                     fillMode: Image.PreserveAspectFit
-                    opacity: 0.4
+                    opacity: 0.6
                 }
             }
 
@@ -611,6 +624,7 @@ Item {
                 id: aboutTab
                 anchors.fill: parent
                 visible: opacity > 0
+                z: 10
                 opacity: root.currentTab === 1 ? 1.0 : 0.0
                 Behavior on opacity {
                     NumberAnimation {

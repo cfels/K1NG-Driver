@@ -1,17 +1,22 @@
 import QtQuick
 import QtQuick.Layouts
+import com.moxiu.k1ng 1.0
 import "components"
 
 Item {
     anchors.fill: parent
+
+    DriverAPI {
+        id: driver
+    }
 
     MapleFontLoader {
         id: mapleFont
     }
 
     FontLoader {
-        id: mapleExtraBoldItalic
-        source: "qrc:/qt/qml/src/ui/qml/assets/fonts/MapleMono-NF-ExtraBoldItalic.ttf"
+        id: mapleBoldItalic
+        source: "qrc:/qt/qml/src/ui/qml/assets/fonts/MapleMono-NF-BoldItalic.ttf"
     }
 
     ColumnLayout {
@@ -23,14 +28,9 @@ Item {
             text: "K1NG PRO (4K) Driver"
             color: "#f2cdcd"
             font.pixelSize: 36
-            font.family: mapleExtraBoldItalic.name
+            font.family: mapleBoldItalic.name
+            font.bold: true
             font.italic: true
-
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-                onClicked: Qt.openUrlExternally("https://git.vacpro.fyi/moxiu/K1NG-Driver/src/branch/dev/src/ui")
-            }
         }
 
         ColumnLayout {
@@ -49,16 +49,13 @@ Item {
                 }
 
                 Text {
-                    text: "git.vacpro.fyi:moxiu/K1NG-Driver"
-                    color: "#cba6f7"
+                    text: "<a href='https://git.vacpro.fyi/moxiu/K1NG-Driver' style='color:#f5c2e7;text-decoration:none;'>git.vacpro.fyi:moxiu/K1NG-Driver</a>"
+                    textFormat: Text.RichText
                     font.pixelSize: 13
                     font.family: mapleFont.name
-                    font.underline: true
-
-                    MouseArea {
-                        anchors.fill: parent
-                        cursorShape: Qt.PointingHandCursor
-                        onClicked: Qt.openUrlExternally("https://git.vacpro.fyi/moxiu/K1NG-Driver")
+                    onLinkActivated: link => driver.openUrl(link)
+                    HoverHandler {
+                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
                 }
             }
@@ -75,16 +72,13 @@ Item {
                 }
 
                 Text {
-                    text: "github:cfels/K1NG-Driver"
-                    color: "#cba6f7"
+                    text: "<a href='https://github.com/cfels/K1NG-Driver' style='color:#f5c2e7;text-decoration:none;'>github:cfels/K1NG-Driver</a>"
+                    textFormat: Text.RichText
                     font.pixelSize: 13
                     font.family: mapleFont.name
-                    font.underline: true
-
-                    MouseArea {
-                        anchors.fill: parent
-                        cursorShape: Qt.PointingHandCursor
-                        onClicked: Qt.openUrlExternally("https://github.com/cfels/K1NG-Driver")
+                    onLinkActivated: link => driver.openUrl(link)
+                    HoverHandler {
+                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
                 }
             }

@@ -2,6 +2,8 @@
 #include <QStandardPaths>
 #include <QCoreApplication>
 #include <QDir>
+#include <QDesktopServices>
+#include <QUrl>
 
 static QString detectEscalator() {
     if (!QStandardPaths::findExecutable(QStringLiteral("doas")).isEmpty())
@@ -30,6 +32,43 @@ void DriverAPI::setDPI(int dpi) {
 
 void DriverAPI::loadPreset(const QString &name) {
     run({ "-p", name });
+}
+
+void DriverAPI::openUrl(const QString &url) {
+    static const QStringList browsers = {
+        QStringLiteral("librewolf"),
+        QStringLiteral("firefox"),
+        QStringLiteral("chromium"),
+        QStringLiteral("google-chrome"),
+        QStringLiteral("kde-open5"),
+        QStringLiteral("kde-open"),
+    };
+
+    QString realUser = qEnvironmentVariable("SUDO_USER");
+    if (realUser.isEmpty())
+        realUser = qEnvironmentVariable("DOAS_USER");
+
+    for (const QString &cmd : browsers) {
+        QString bin = QStandardPaths::findExecutable(cmd);
+        if (bin.isEmpty())
+            continue;
+
+        if (!realUser.isEmpty()) {
+            QString display    = qEnvironmentVariable("DISPLAY");
+            QString xauth      = qEnvironmentVariable("XAUTHORITY");
+            QString wayland    = qEnvironmentVariable("WAYLAND_DISPLAY");
+            QString script     = QStringLiteral(
+                "DISPLAY=%1 XAUTHORITY=%2 WAYLAND_DISPLAY=%3 "
+                "XDG_RUNTIME_DIR=/run/user/$(id -u %4) %5 %6")
+                .arg(display, xauth, wayland, realUser, bin, url);
+            QProcess::startDetached(QStringLiteral("su"),
+                { realUser, QStringLiteral("-c"), script });
+        } else {
+            QProcess::startDetached(bin, { url });
+        }
+        return;
+    }
+    QDesktopServices::openUrl(QUrl(url));
 }
 
 void DriverAPI::run(const QStringList &args) {

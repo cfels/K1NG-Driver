@@ -19,6 +19,7 @@ public:
 
     Q_INVOKABLE void setDPI(int dpi);
     Q_INVOKABLE void loadPreset(const QString &name);
+    Q_INVOKABLE void openUrl(const QString &url);
 
 signals:
     void busyChanged();

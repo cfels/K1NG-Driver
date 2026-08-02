@@ -56,6 +56,7 @@ Window {
             anchors.fill: parent
             acceptedButtons: Qt.LeftButton
             propagateComposedEvents: true
+            enabled: !surface.controlsVisible
             onPressed: mouse => {
                 mouse.accepted = false;
                 appWindow.startSystemMove();
