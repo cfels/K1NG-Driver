@@ -1,0 +1,6 @@
+[submodule "src/ui/includes/quickshell/m3shapes"]
+	path = src/ui/includes/quickshell/m3shapes
+	url = ssh://git@git.vacpro.fyi:2223/moxiu/m3shapes.git
+[submodule "src/ui/includes/quickshell/material-components-qml"]
+	path = src/ui/includes/quickshell/material-components-qml
+	url = ssh://git@git.vacpro.fyi:2223/moxiu/material-components-qml.git
