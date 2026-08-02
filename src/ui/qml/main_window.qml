@@ -41,23 +41,37 @@ Window {
             NumberAnimation {
                 duration: 500
                 easing.type: Easing.InOutCubic
-                onRunningChanged: if (!running && surface.width === appWindow.maxContentWidth) surface.controlsVisible = true
+                onRunningChanged: if (!running && surface.width === appWindow.maxContentWidth)
+                    surface.controlsVisible = true
             }
         }
         Behavior on height {
-            NumberAnimation { duration: 500; easing.type: Easing.InOutCubic }
+            NumberAnimation {
+                duration: 500
+                easing.type: Easing.InOutCubic
+            }
         }
 
         MouseArea {
             anchors.fill: parent
             acceptedButtons: Qt.LeftButton
-            onPressed: appWindow.startSystemMove()
+            propagateComposedEvents: true
+            onPressed: mouse => {
+                mouse.accepted = false;
+                appWindow.startSystemMove();
+            }
         }
 
         Loading {
+            id: loadingIndicator
             anchors.centerIn: parent
             opacity: surface.controlsVisible ? 0 : 1
-            Behavior on opacity { NumberAnimation { duration: 200 } }
+            Behavior on opacity {
+                NumberAnimation {
+                    duration: 300
+                    easing.type: Easing.OutCubic
+                }
+            }
         }
 
         Loader {
@@ -65,11 +79,14 @@ Window {
             anchors.fill: parent
             opacity: 0
             source: surface.controlsVisible ? "mainpage.qml" : ""
-            onStatusChanged: if (status === Loader.Ready) fadeIn.start()
+            onStatusChanged: if (status === Loader.Ready)
+                pageReveal.start()
+
             NumberAnimation on opacity {
-                id: fadeIn
+                id: pageReveal
+                from: 0
                 to: 1
-                duration: 250
+                duration: 400
                 easing.type: Easing.OutCubic
             }
         }
@@ -80,8 +97,8 @@ Window {
         running: true
         repeat: false
         onTriggered: {
-            surface.width = maxContentWidth
-            surface.height = maxContentHeight
+            surface.width = maxContentWidth;
+            surface.height = maxContentHeight;
         }
     }
 }

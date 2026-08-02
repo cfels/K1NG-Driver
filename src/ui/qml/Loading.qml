@@ -10,6 +10,7 @@ MaterialShape {
             return [MaterialShape.SoftBurst, MaterialShape.Cookie9Sided, MaterialShape.Pill, MaterialShape.Sunny, MaterialShape.Cookie4Sided, MaterialShape.Oval];
         return [MaterialShape.SoftBurst, MaterialShape.Cookie9Sided, MaterialShape.Pentagon, MaterialShape.Pill, MaterialShape.Sunny, MaterialShape.Cookie4Sided, MaterialShape.Oval];
     }
+
     property int shapeIndex
     property real cRotation
     property real lRotation
@@ -28,11 +29,13 @@ MaterialShape {
         const c = 1 / Math.sqrt(1 - dampingRatio * dampingRatio);
         return Math.log(visibilityThreshold / c) / r;
     }
+
     readonly property real springMaxVelocity: {
         const wn = Math.sqrt(stiffness);
         const factor = Math.exp(-dampingRatio * Math.acos(dampingRatio) / Math.sqrt(1 - dampingRatio * dampingRatio));
         return wn * factor;
     }
+
     property bool springSettled: true
     function spring(t: real): var {
         const wn = Math.sqrt(stiffness);
@@ -43,12 +46,14 @@ MaterialShape {
         const vel = Math.exp(-za * t) * (wn * wn / wd) * Math.sin(wd * t);
         return [pos, vel];
     }
+
     implicitSize: 38
     color: Colours.palette.m3primary
     toShape: shapes[0]
     ElapsedTimer {
         id: timer
     }
+
     FrameAnimation {
         running: root.animated && !root.springSettled
         onTriggered: {
@@ -63,6 +68,7 @@ MaterialShape {
             }
         }
     }
+
     Timer {
         interval: 650
         repeat: true
@@ -80,6 +86,7 @@ MaterialShape {
             timer.restart();
         }
     }
+
     RotationAnimation on cRotation {
         id: rotateAnim
         running: root.animated
@@ -89,6 +96,7 @@ MaterialShape {
         loops: Animation.Infinite
         duration: 3666
     }
+
     Behavior on color {
         CAnim {}
     }

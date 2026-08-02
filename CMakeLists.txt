@@ -36,7 +36,7 @@ qt_add_qml_module(k1ngui
         src/ui/qml/main_window.qml
         src/ui/qml/Loading.qml
         src/ui/qml/mainpage.qml
-        src/ui/qml/settings.qml
+        src/ui/qml/about.qml
         src/ui/qml/components/ElapsedTimer.qml
         src/ui/qml/components/CAnim.qml
         src/ui/qml/components/MapleFontLoader.qml
@@ -44,6 +44,7 @@ qt_add_qml_module(k1ngui
     RESOURCES
         src/ui/qml/services/qmldir
         src/ui/qml/assets/fonts/MapleMono-NF-Regular.ttf
+        src/ui/qml/assets/fonts/MapleMono-NF-ExtraBoldItalic.ttf
         src/ui/qml/assets/logo.png
     RESOURCE_PREFIX "/qt/qml"
     NO_RESOURCE_TARGET_PATH
