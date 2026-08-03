@@ -18,7 +18,7 @@ everything "should" install properly
 ./clean.sh && ./build.sh
 ```
 
-output dir is `output` and install dir is`~/.local/bin`
+output dir is `output` and install dir is `~/.local/bin`
 
 ### TODO
 
