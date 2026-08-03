@@ -58,3 +58,4 @@ build/
 compile_commands.json
 .envrc
 .cache
+output/

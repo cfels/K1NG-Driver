@@ -6,8 +6,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(Qt6 REQUIRED COMPONENTS Gui Qml Quick Svg Core)
 qt_standard_project_setup()
 
-add_subdirectory(src/ui/includes/quickshell/m3shapes)
-add_subdirectory(src/ui/includes/quickshell/material-components-qml/src/Core)
+add_subdirectory(src/ui/includes/quickshell/m3shapes EXCLUDE_FROM_ALL)
+add_subdirectory(src/ui/includes/quickshell/material-components-qml/src/Core EXCLUDE_FROM_ALL)
 
 add_executable(k1ngui
     src/ui/main.cpp
@@ -77,4 +77,35 @@ add_custom_command(TARGET k1ngui POST_BUILD
 
 set_target_properties(k1ngui PROPERTIES
     QML_IMPORT_PATH "${CMAKE_BINARY_DIR}/qml"
+    INSTALL_RPATH "$ORIGIN"
+)
+
+install(TARGETS k1ngui
+    RUNTIME DESTINATION bin/k1ng-driver
+)
+
+install(TARGETS m3shapes
+    LIBRARY DESTINATION bin/k1ng-driver
+)
+
+install(PROGRAMS src/ui/driver_bin/k1ng_driver
+    DESTINATION bin/k1ng-driver/driver_bin
+)
+
+install(PROGRAMS src/ui/scripts/run.sh
+    DESTINATION bin
+    RENAME k1ngui
+)
+
+install(FILES src/ui/com.moxiu.k1ng.desktop
+    DESTINATION share/applications
+)
+
+install(FILES src/ui/qml/assets/logo.png
+    DESTINATION bin/k1ng-driver
+)
+
+install(FILES src/ui/qml/assets/logo.png
+    DESTINATION share/icons/hicolor/512x512/apps
+    RENAME com.moxiu.k1ng.png
 )

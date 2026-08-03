@@ -7,6 +7,9 @@
 
 int main(int argc, char *argv[]) {
     QGuiApplication::setDesktopSettingsAware(false);
+    QGuiApplication::setApplicationName(QStringLiteral("k1ngui"));
+    QGuiApplication::setApplicationDisplayName(QStringLiteral("K1NG Driver"));
+    QGuiApplication::setDesktopFileName(QStringLiteral("com.moxiu.k1ng"));
 
     QGuiApplication app(argc, argv);
     app.styleHints()->setColorScheme(Qt::ColorScheme::Dark);

@@ -1,26 +1,24 @@
-> [!IMPORTANT]
-> U may need something like this for the driver to work:
-
-```
-services.udev.extraRules = ''
-    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f54d", MODE="0666"
-  '';
-```
-
 ## K1NG-Driver
 
 a practically finished driver for K1NG PRO (4K) mouse from redragon, ported to linux
 
-### Downloading
+### Installing
 
-u can download the driver from [Release's](https://git.vacpro.fyi/moxiu/K1NG-Driver/releases/)
+download the driver from [Release's](https://git.vacpro.fyi/moxiu/K1NG-Driver/releases/)
+
+```
+cd output && ./install.sh
+```
+
+everything "should" install properly
 
 ### Compiling
 
 ```
-nix-shell --run "make clean && make"
-sudo ./k1ng_driver
+./clean.sh && ./build.sh
 ```
+
+output dir is `output` and install dir is`~/.local/bin`
 
 ### TODO
 
@@ -28,7 +26,7 @@ sudo ./k1ng_driver
 - [x] changing sens
 - [x] wireless mode support
 - [x] wired mode support
-- [ ] make an ui for the driver
+- [x] make an ui for the driver
 
 ### License
 

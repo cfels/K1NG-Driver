@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=K1NG Driver
+Comment=Redragon K1NG PRO (4k) driver
+Exec=k1ngui
+Icon=com.moxiu.k1ng
+Terminal=false
+Categories=Settings;HardwareSettings;
+StartupWMClass=k1ngui
