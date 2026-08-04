@@ -4,7 +4,7 @@ a practically finished driver for K1NG PRO (4K) mouse from redragon, ported to l
 
 ### Installing
 
-download the driver from [Release's](https://git.vacpro.fyi/moxiu/K1NG-Driver/releases/)
+download the driver from [Release's](https://github.com/cfels/K1NG-Driver/releases/)
 
 ```
 cd output && ./install.sh
@@ -32,4 +32,4 @@ output dir is `output` and install dir is `~/.local/bin`
 
 ### License
 
-this project is under [MIT License](https://git.vacpro.fyi/moxiu/K1NG-Driver/src/branch/dev/LICENSE)
+this project is under [MIT License](https://github.com/cfels/K1NG-Driver/blob/dev/LICENSE)
