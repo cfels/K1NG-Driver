@@ -15,7 +15,7 @@ everything "should" install properly
 ### Compiling
 
 ```
-git clone --recurse-submodules https://git.vacpro.fyi/moxiu/K1NG-Driver.git
+git clone --recurse-submodules https://github.com/cfels/K1NG-Driver.git
 cd K1NG-Driver
 ./clean.sh && ./build.sh
 ```
