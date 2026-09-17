@@ -23,10 +23,15 @@ void run_driver(int sens) {
 
     printf("mouse found!!\n");
 
-    if (libusb_kernel_driver_active(handle, 1) == 1) {
-        libusb_detach_kernel_driver(handle, 1);
+    libusb_set_auto_detach_kernel_driver(handle, 1);
+
+    int claimed = libusb_claim_interface(handle, 1);
+    if (claimed < 0) {
+        fprintf(stderr, "couldnt claim interface 1: %s\n", libusb_error_name(claimed));
+        libusb_close(handle);
+        libusb_exit(NULL);
+        return;
     }
-    libusb_claim_interface(handle, 1);
 
     unsigned char payload[17];
     get_payload(sens, payload);
