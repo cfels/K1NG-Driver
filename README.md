@@ -2,6 +2,9 @@
 
 a practically finished driver for K1NG PRO (4K) mouse from redragon, ported to linux
 
+> [!WARNING]
+> soo something broke and setting ur sens no longer works for now
+
 ### Installing
 
 download the driver from [Release's](https://github.com/cfels/K1NG-Driver/releases/)
