@@ -42,34 +42,16 @@ Item {
                 spacing: 6
 
                 Text {
-                    text: "main repo:"
+                    text: "repo link:"
                     color: "#6c7086"
                     font.pixelSize: 13
                     font.family: mapleFont.name
-                }
-
-                Text {
-                    text: "<a href='https://git.vacpro.fyi/moxiu/K1NG-Driver' style='color:#f5c2e7;text-decoration:none;'>git.vacpro.fyi:moxiu/K1NG-Driver</a>"
-                    textFormat: Text.RichText
-                    font.pixelSize: 13
-                    font.family: mapleFont.name
-                    onLinkActivated: link => driver.openUrl(link)
-                    HoverHandler {
-                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
-                    }
                 }
             }
 
             Row {
                 Layout.alignment: Qt.AlignHCenter
                 spacing: 6
-
-                Text {
-                    text: "mirror repo:"
-                    color: "#6c7086"
-                    font.pixelSize: 13
-                    font.family: mapleFont.name
-                }
 
                 Text {
                     text: "<a href='https://github.com/cfels/K1NG-Driver' style='color:#f5c2e7;text-decoration:none;'>github:cfels/K1NG-Driver</a>"

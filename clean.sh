@@ -2,7 +2,7 @@
 
 set -e
 
-BUILD_DIR="$HOME/projekts/K1NG-Driver"
+BUILD_DIR="$HOME/projects/K1NG-Driver"
 
 # cleanup stuff
 echo "cleanup!"

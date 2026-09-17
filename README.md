@@ -10,12 +10,12 @@ download the driver from [Release's](https://github.com/cfels/K1NG-Driver/releas
 cd output && ./install.sh
 ```
 
-everything "should" install properly
+everything `"should"` install properly
 
 ### Compiling
 
 ```
-git clone --recurse-submodules https://github.com/cfels/K1NG-Driver.git
+git clone https://github.com/cfels/K1NG-Driver.git --recurse-submodules
 cd K1NG-Driver
 ./clean.sh && ./build.sh
 ```
