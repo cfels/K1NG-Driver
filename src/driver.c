@@ -197,7 +197,7 @@ static int exchange(libusb_device_handle *handle, unsigned char *request, unsign
             return r;
         }
         if (attempt == 0) {
-            fprintf(stderr, "waiting for mouse response; retrying read automatically\n");
+            fprintf(stderr, "waiting for mouse response; try moving or clicking your mouse\n");
         }
     }
     return LIBUSB_ERROR_TIMEOUT;
