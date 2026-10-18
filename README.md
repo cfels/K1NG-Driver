@@ -2,9 +2,6 @@
 
 a practically finished driver for K1NG PRO (4K) mouse from redragon, ported to linux
 
-> [!WARNING]
-> soo something broke and setting ur sens no longer works for now
-
 ### Installing
 
 download the driver from [Release's](https://github.com/cfels/K1NG-Driver/releases/)
@@ -27,9 +24,9 @@ output dir is `output` and install dir is `~/.local/bin`
 - [x] changing sens
 - [x] wireless mode support
 - [x] wired mode support
-- [ ] find battery precentage
-- [ ] delete bits of old ui code
-- [ ] make the driver work (again)
+- [x] battery precentage
+- [x] delete bits of old ui code
+- [x] make the driver work (again)
 
 ### License
 
