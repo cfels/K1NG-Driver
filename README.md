@@ -9,16 +9,12 @@ a practically finished driver for K1NG PRO (4K) mouse from redragon, ported to l
 
 download the driver from [Release's](https://github.com/cfels/K1NG-Driver/releases/)
 
-```
-cd output && ./install.sh
-```
-
-everything `"should"` install properly
+everything works maybe
 
 ### Compiling
 
 ```
-git clone https://github.com/cfels/K1NG-Driver.git --recurse-submodules
+git clone https://github.com/cfels/K1NG-Driver.git
 cd K1NG-Driver
 ./clean.sh && ./build.sh
 ```
@@ -31,7 +27,9 @@ output dir is `output` and install dir is `~/.local/bin`
 - [x] changing sens
 - [x] wireless mode support
 - [x] wired mode support
-- [x] make an ui for the driver
+- [ ] find battery precentage
+- [ ] delete bits of old ui code
+- [ ] make the driver work (again)
 
 ### License
 

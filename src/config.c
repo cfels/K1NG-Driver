@@ -4,9 +4,9 @@
 int config_save_preset(const char *path, const char *name, int dpi) {
     FILE *fp = fopen(path, "a");
     if (!fp) return -1;
-    fprintf(fp, "[%s]\ndpi = %d\n\n", name, dpi);
-    fclose(fp);
-    return 0;
+    int written = fprintf(fp, "[%s]\ndpi = %d\n\n", name, dpi);
+    int closed = fclose(fp);
+    return written < 0 || closed != 0 ? -1 : 0;
 }
 
 int config_load_preset(const char *path, const char *name, int *dpi) {
@@ -18,8 +18,8 @@ int config_load_preset(const char *path, const char *name, int *dpi) {
     char key[256];
     snprintf(key, sizeof(key), "%s.dpi", name);
     toml_datum_t val = toml_seek(result.toptab, key);
-    if (val.type != TOML_INT64) {
-        fprintf(stderr, "preset '%s' not found\n", name);
+    if (val.type != TOML_INT64 || val.u.int64 < 50 || val.u.int64 > 26000 || val.u.int64 % 50 != 0) {
+        fprintf(stderr, "preset '%s' has no valid DPI (50-26000 in steps of 50)\n", name);
         toml_free(result);
         return -1;
     }

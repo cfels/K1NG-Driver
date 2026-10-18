@@ -38,5 +38,13 @@ includes/tomlc17-R260618/src/tomlc17.o: includes/tomlc17-R260618/src/tomlc17.c
 clean:
 	rm -f $(OBJ) $(TARGET)
 
+.PHONY: all clean run test test-captures
+
+test:
+	CC="$(CC)" python3 tests/check_protocol.py
+
+test-captures:
+	CC="$(CC)" python3 tests/check_protocol.py --captures
+
 run: $(TARGET)
 	./$(TARGET)

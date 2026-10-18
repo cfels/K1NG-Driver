@@ -1,6 +1,0 @@
-[submodule "src/ui/includes/quickshell/m3shapes"]
-	path = src/ui/includes/quickshell/m3shapes
-	url = https://github.com/soramanew/m3shapes.git
-[submodule "src/ui/includes/quickshell/material-components-qml"]
-	path = src/ui/includes/quickshell/material-components-qml
-	url = https://github.com/sudoevolve/material-components-qml.git

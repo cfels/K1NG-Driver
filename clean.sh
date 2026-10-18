@@ -8,7 +8,5 @@ BUILD_DIR="$HOME/projects/K1NG-Driver"
 echo "cleanup!"
 cd $BUILD_DIR
 make clean
-rm -rf build
-rm -rf output
 
 echo "cleanup done!"

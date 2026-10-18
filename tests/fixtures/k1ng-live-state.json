@@ -1,0 +1,40 @@
+{
+  "device": "3554:f54f",
+  "transport": "wireless",
+  "source": "Independent read-only queries through the K1NG vendor hidraw interface; not an atomic snapshot",
+  "settings_written": false,
+  "stage_count": 3,
+  "stage_index": 1,
+  "profile_index": 2,
+  "target": 16,
+  "dpi": 400,
+  "online": {
+    "request": "080300000000000000000000000000004a",
+    "response": "08030000000101ac19660000000000001d"
+  },
+  "configuration": {
+    "request": "080800000006000000000000000000003f",
+    "response": "0808000000060154035201540000000040"
+  },
+  "dpi_register": {
+    "request": "0808000010040000000000000000000031",
+    "response": "08080000100407070047000000000000dc"
+  },
+  "profile": {
+    "request": "080e00000000000000000000000000003f",
+    "response": "080e00000001020000000000000000003c"
+  },
+  "battery": {
+    "percentage": 65,
+    "charging": false,
+    "request": "0804000000000000000000000000000049",
+    "response": "08040000000241000f8300000000000074"
+  },
+  "battery_wired": {
+    "device": "3554:f54d",
+    "percentage": 95,
+    "charging": true,
+    "request": "0804000000000000000000000000000049",
+    "response": "0804000000025f011011000000000000c6"
+  }
+}
