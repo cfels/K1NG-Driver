@@ -72,7 +72,7 @@ jobs:
               revision = f"{previous}..HEAD"
 
           url = f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}"
-          notes = ["### K1NG-Driver", "", "### changes:", ""]
+          notes = ["## K1NG-Driver", "", "### changes:", ""]
           for commit in git("log", "--reverse", "--format=%H%x09%s", revision, "--").splitlines():
               sha, subject = commit.split("\t", 1)
               subject = subject.replace("\\", "\\\\").replace("[", "\\[").replace("]", "\\]")
