@@ -350,7 +350,7 @@ def code_tests(directory):
     assert "ACK=yes\nreadback=400\n" in result.stdout
     result = check_cli(["600"], True, usb_environment={"K1NG_TEST_WAKE_READS": "1"})
     assert "ACK=yes\nreadback=600\n" in result.stdout
-    assert result.stderr == "waiting for mouse response; retrying read automatically\n"
+    assert result.stderr == "waiting for mouse response; try moving or clicking your mouse\n", result.stderr
     result = check_cli(["400"], False, ack_without_apply=True)
     assert "ACK=yes" in result.stdout
     assert "readback=" not in result.stdout

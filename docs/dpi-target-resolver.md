@@ -162,9 +162,10 @@ The pinned [Compx request implementation](https://github.com/Brunovncs/compx-tra
 documents dropped initial packets from sleeping mice and retries requests three
 times with a one-second reply timeout. This driver now applies that bounded
 recovery to read commands 03, 08, and 0e only, and only after timeout. It prints
-`waiting for mouse response; retrying read automatically` after the first
-timeout of a retried read. Movement/clicking is suggested only after all three
-attempts fail. There is no fixed startup sleep. Valid replies proceed
+`waiting for mouse response; try moving or clicking your mouse` after the first
+timeout of a retried read. Reads still retry automatically, with a final
+move/click suggestion after all three attempts fail. There is no fixed startup
+sleep. Valid replies proceed
 immediately; malformed replies and non-timeout errors still fail immediately.
 Every retry drains pending input and requeues interrupt IN before sending.
 Battery command 04 and settings write 07 keep their single-attempt behavior.
