@@ -36,6 +36,9 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Trust checked-out workspace
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
       - name: Validate release tag
         run: |
           git check-ref-format "refs/tags/$RELEASE_TAG"
